@@ -12,7 +12,12 @@ class BankAccount {
         balance = 0;
     }
 
-    
+    void addInterest(double rate) {
+    double interest = balance * rate / 100;
+    balance += interest;
+    System.out.println("Interest Added: ₹" + interest);
+}
+
     void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
@@ -60,6 +65,7 @@ public class BankApplication {
             System.out.println("2. Withdraw");
             System.out.println("3. Check Balance");
             System.out.println("4. Exit");
+            System.out.println("5. Add Interest");
             System.out.print("Enter your choice: ");
 
             choice = sc.nextInt();
@@ -84,6 +90,13 @@ public class BankApplication {
                 case 4:
                     System.out.println("Thank you for using Bank Application!");
                     break;
+                
+                case 5:
+                    System.out.print("Enter interest rate: ");
+                    double rate = sc.nextDouble();
+                    account.addInterest(rate);
+                    break;
+
 
                 default:
                     System.out.println("Invalid Choice! Try Again.");
